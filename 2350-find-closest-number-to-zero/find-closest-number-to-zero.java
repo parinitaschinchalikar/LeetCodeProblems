@@ -11,17 +11,5 @@ class Solution {
             }
         }
         return ans;
-
-
-        // int min = nums[0];
-        // for(int n : nums)
-        // {
-        //     int distance = Math.abs(n);
-        //     if(distance < Math.abs(min))
-        //     {
-        //         min = distance;
-        //     } 
-        // }
-        // return min;
     }
 }
