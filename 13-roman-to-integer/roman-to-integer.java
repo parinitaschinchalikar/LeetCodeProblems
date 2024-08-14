@@ -11,13 +11,12 @@ class Solution {
         d.put('M', 1000);
 
         int sum = 0; 
-        int prevVal = 0;
 
-        for(int i = s.length() -1; i >= 0; i-- )
+        for(int i = 0; i < s.length(); i++ )
         {
             int currentVal = d.get(s.charAt(i));
 
-            if(currentVal < prevVal)
+            if(i+1 < s.length() && currentVal < d.get(s.charAt(i+1)))
             {
                 sum -= currentVal;
             }
@@ -25,8 +24,6 @@ class Solution {
             {
                 sum += currentVal;
             }
-
-            prevVal = currentVal;
         }
         return sum;    
     }
