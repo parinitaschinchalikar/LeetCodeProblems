@@ -8,30 +8,12 @@ class Solution
         if(nums.length == 1)
             return nums[0];
 
-        int rob1 = 0, rob2 = 0;
+        int sum1 = 0, sum2 = 0;
         for (int num : nums) {
-            int newRob = Math.max(rob1 + num, rob2);
-            rob1 = rob2;
-            rob2 = newRob;
+            int newSum = Math.max(sum1 + num, sum2);
+            sum1 = sum2;
+            sum2 = newSum;
         }
-        return rob2;
-        
-        // int evenSum = 0;
-        // int oddSum = 0;
-        // for(int i=1;i<nums.length;i++)
-        // {
-        //     if(i%nums.length == 0)
-        //     {
-        //         evenSum = evenSum + nums[i];  
-        //     }
-        //     else
-        //     {
-        //         oddSum = oddSum + nums[i];
-        //     }
-        // }
-        // if(evenSum > oddSum)
-        //     return evenSum;
-        // else
-        //     return oddSum;
+        return sum2;
     }
 }
