@@ -10,7 +10,7 @@ class Solution
 
             res = Math.max(res, container);
 
-            if(height[l] <= height[r])
+            if(height[l] < height[r])
             {
                 l++;
             }
