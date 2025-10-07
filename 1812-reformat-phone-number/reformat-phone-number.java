@@ -1,42 +1,56 @@
+class Solution {
+    public String reformatNumber(String number) {
+        // collect digits
+        StringBuilder digits = new StringBuilder(number.length());
+        for (int i = 0; i < number.length(); i++) {
+            char c = number.charAt(i);
+            if (c >= '0' && c <= '9') digits.append(c);
+        }
+
+        int n = digits.length(), i = 0;
+        StringBuilder out = new StringBuilder(n + n / 3);
+
+        while (n - i > 4) {
+            out.append(digits, i, i + 3).append('-');
+            i += 3;
+        }
+
+        int remain = n - i;
+        if (remain == 4) {
+            out.append(digits, i, i + 2).append('-').append(digits, i + 2, i + 4);
+        } else { // 2 or 3
+            out.append(digits, i, n);
+        }
+        return out.toString();
+    }
+}
+
+/**Brute Force Solution:
+
 class Solution 
 {
     public String reformatNumber(String number) 
-    {
-        StringBuilder res = new StringBuilder(number.length());
-        int group = 0;
-
-        for(int i=0; i< number.length(); i++ )
-        {
-            char c = number.charAt(i);
-            if(c>='0' && c<='9')
-            {
-                res.append(c);
-                if(++group == 3)
-                {
-                    res.append('-');
-                    group =0;
-                }
-            }
-        }
-
-        int len = res.length();
-        if(len > 0 && res.charAt(len - 1) == '-')
-        {
-            res.setLength(len -1);
-            len--;
-        }
-
-        int lastGroupLen =0;
-        for (int i = len - 1; i >= 0 && res.charAt(i) != '-'; i--) 
-            lastGroupLen++;
-        if (lastGroupLen == 1) 
-        {
-            int dash = res.lastIndexOf("-");
-            char move = res.charAt(dash - 1);
-            res.deleteCharAt(dash - 1);
-            res.insert(dash, move);
-        }
-
-        return res.toString();
-    }
+    { 
+        String digits = number.replaceAll("\\D", ""); 
+        int n = digits.length(); 
+        StringBuilder res = new StringBuilder(); 
+        int i = 0; 
+        
+        while(n > 4) 
+        { 
+            res.append(digits.substring(i, i+3)).append("-"); 
+            i += 3; 
+            n -= 3; 
+        } 
+        if(n == 4) 
+        { 
+            res.append(digits.substring(i, i+2)).append("-").append(digits.substring(i+2)); 
+        } 
+        else 
+        { 
+            res.append(digits.substring(i)); 
+        } 
+        return res.toString(); 
+    } 
 }
+*/
