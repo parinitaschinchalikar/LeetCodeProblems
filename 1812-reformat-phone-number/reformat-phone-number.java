@@ -1,24 +1,34 @@
-class Solution {
-    public String reformatNumber(String number) {
-        // collect digits
+class Solution 
+{
+    public String reformatNumber(String number) 
+    {
+        // collect digits and remove hyphens
         StringBuilder digits = new StringBuilder(number.length());
-        for (int i = 0; i < number.length(); i++) {
+    
+        for (int i = 0; i < number.length(); i++) 
+        {
             char c = number.charAt(i);
-            if (c >= '0' && c <= '9') digits.append(c);
+            if (c >= '0' && c <= '9') 
+                digits.append(c);
         }
 
         int n = digits.length(), i = 0;
-        StringBuilder out = new StringBuilder(n + n / 3);
+        StringBuilder out = new StringBuilder(n);
 
-        while (n - i > 4) {
+        while (n - i > 4)
+        {
             out.append(digits, i, i + 3).append('-');
             i += 3;
         }
 
         int remain = n - i;
-        if (remain == 4) {
+
+        if (remain == 4) 
+        {
             out.append(digits, i, i + 2).append('-').append(digits, i + 2, i + 4);
-        } else { // 2 or 3
+        } 
+        else 
+        { // 2 or 3
             out.append(digits, i, n);
         }
         return out.toString();
