@@ -2,6 +2,7 @@ class Solution
 {
     public int[] topKFrequent(int[] nums, int k) 
     {
+        //Optimal solution - Bucket sort + HashMap
         Map<Integer, Integer> count = new HashMap<>();
         List<Integer> [] freq = new List[nums.length + 1];
 
@@ -33,6 +34,8 @@ class Solution
                 }
             }
         }
-        return res;        
+        return res;
     }
 }
+//Time complexity : O(n)
+//Space complexity : O(n)
