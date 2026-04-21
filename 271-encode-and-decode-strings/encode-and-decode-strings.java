@@ -33,6 +33,14 @@ public class Codec
         return decoded;
     }
 }
+//Encode :
+//Time complexity : O(m)
+//Space complexity : O(m)
+
+//Decode:
+//Time complexity : O(m)
+//Space complexity : O(m)
+//where m = total characters across all strings
 
 // Your Codec object will be instantiated and called as such:
 // Codec codec = new Codec();
