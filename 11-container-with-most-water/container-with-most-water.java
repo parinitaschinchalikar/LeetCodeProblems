@@ -1,24 +1,49 @@
+// class Solution 
+// {
+//     public int maxArea(int[] height) 
+//     {
+//         //Brute force
+//         int maxWater =0;
+
+//         for(int i=0; i < height.length; i++)
+//         {
+//             for(int j=i+1; j < height.length; j++)
+//             {
+//                 int width = j-i;
+//                 int containerHeight = Math.min(height[i], height[j]);
+//                 int area = width * containerHeight;
+//                 maxWater = Math.max(maxWater, area);
+//             }
+//         }
+//         return maxWater;
+//     }
+// }
+//time complexity : O(n^2)
+//space complexity : O(1)
+
 class Solution 
 {
-    public int maxArea(int[] height) 
+    public int maxArea(int[] height)
     {
-        int l=0, r=height.length-1, res=0;
+        //Optimal Solution
+        int left =0, right = height.length-1, result =0;
 
-        while(l<r)
+        while(left < right)
         {
-            int container = (r-l) * Math.min(height[l], height[r]);
+            int container = (right - left) * Math.min(height[left], height[right]);
 
-            res = Math.max(res, container);
-
-            if(height[l] < height[r])
+            result = Math.max(container, result);
+            if(height[left] < height[right])
             {
-                l++;
+                left++;
             }
             else
             {
-                r--;
+                right--;
             }
         }
-        return res;    
+        return result;
     }
 }
+//Time complexity : O(n)
+//Space complexity : O(1)
