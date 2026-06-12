@@ -1,33 +1,3 @@
-/**
-class Solution 
-{
-    public boolean checkInclusion(String s1, String s2) 
-    {
-        //Brute Force -Sorting
-        s1 = sort(s1);
-        for(int i=0; i<= s2.length() - s1.length(); i++)
-        {
-            if(s1.equals(sort(s2.substring(i, i+s1.length()))))
-                return true;
-        }
-        return false;
-    }
-
-    public String sort(String s)
-    {
-        char[] t = s.toCharArray();
-        Arrays.sort(t);
-        return new String(t);
-    }
-}
-length of s1 = l1, length of s2 = l2
-sorting of s1 -> O(l1. log l1)
-iteration in a loop & sorting substring (l1) -> O((l2-l1+1). l1 log l1)
-total time complexity : O((l2-l1).l1.log l1)
-
-space complexity : O(l1+S) (In java sorting algo used is Quick sort algorithm which is O(log n))
- */
-
 class Solution
 {
     public boolean checkInclusion(String s1, String s2)
