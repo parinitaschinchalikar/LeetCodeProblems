@@ -76,3 +76,41 @@ class Solution
 time complexity : O(n)
 space complexity : O(1)
  */
+
+
+ /*Brute force
+class Solution
+{
+    public boolean checkInclusion(String s1, String s2)
+    {
+        int len1 = s1.length();
+        int len2 = s2.length();
+
+        if(len1 > len2)
+            return false;
+
+        String sortedS1 = sort(s1);
+
+        for(int i = 0; i <= len2-len1; i++)
+        {
+            String window = s2.substring(i, i+len1);
+
+            if(sort(window).equals(sortedS1))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    private String sort(String str)
+    {
+        char[] t = str.toCharArray();
+        Arrays.sort(t);
+        return new String(t);
+    }
+ }
+ /*
+ N = length of s2, M = length of s1
+ Time complexity : O((N-M+1).MlogM)
+ Space complexity : O(M)
+ */
