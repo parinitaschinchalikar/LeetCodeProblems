@@ -6,6 +6,7 @@ class Solution
         /**
         if(strs.length == 0)
             return new ArrayList<>();
+        
         Map<String, List<String>> map = new HashMap<>();
         
         for(String s : strs)
@@ -16,10 +17,11 @@ class Solution
             map.computeIfAbsent(key, k-> new ArrayList<>()).add(s);
         }
         return new ArrayList<>(map.values());
-        
+        */
+        //N = number of Strings, K = maximum length of a string  
         //Time complexity : O(N*K*log K)
         //Space complexity : O(N*K)
-        */
+        
 
         //Optimal Solution
         if(strs.length == 0)
@@ -35,8 +37,7 @@ class Solution
                 freq[c - 'a']++;
             }
             String key = Arrays.toString(freq);
-            result.putIfAbsent(key, new ArrayList<>());
-            result.get(key).add(s);
+            result.computeIfAbsent(key, k-> new ArrayList<>()).add(s);
         }
         return new ArrayList<>(result.values());
     }
