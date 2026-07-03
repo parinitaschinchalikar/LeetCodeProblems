@@ -1,21 +1,52 @@
-class Solution {
-    public int maxProfit(int[] prices){
-        //Greedy One pass solution
-        int buy = Integer.MAX_VALUE;
-        int profit = 0;
+// class Solution {
+//     public int maxProfit(int[] prices) 
+//     {
+//         // 1st try
+//         int buy = Integer.MAX_VALUE;
+//         int profit = 0;
 
-        for(int i=0; i< prices.length; i++){
-            if(prices[i] < buy){
-                buy = prices[i];
-            }
-            else if(prices[i]-buy > profit){
-                profit = prices[i] - buy;
-            }
+//         // for(int p = 0; p < prices.length; p++)
+//         // {
+//         //     if(prices[p] < buy)
+//         //     {
+//         //         buy = prices[p];
+//         //     }
+
+//         //     if(prices[p] - buy > profit)
+//         //         profit = prices[p] - buy;
+//         // }
+        
+//         for(int p : prices)
+//         {
+//             if(p < buy)
+//             {
+//                 buy = p;
+//             }
+
+//             if(p - buy > profit)
+//             {
+//                 profit = p - buy;
+//             }
+//         }
+
+//         return profit;
+//     }
+// }
+
+class Solution{
+    public int maxProfit(int[] prices){
+        int buy = Integer.MAX_VALUE;
+        int profit =0;
+
+        for(int p : prices){
+            if(p < buy)  // 
+                buy = p;
+            
+            if(p-buy > profit)   // calculate the max profit  
+                profit = p-buy;
         }
         return profit;
     }
-}
-/**
-Time complexity : O(n)
-Space complexity : O(1)
-*/
+} 
+//Time : O(N)
+//Space : O(1)
