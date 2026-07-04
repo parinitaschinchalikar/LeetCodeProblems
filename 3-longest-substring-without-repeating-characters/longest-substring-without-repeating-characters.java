@@ -1,39 +1,28 @@
-/**class Solution 
-{
+class Solution {
     public int lengthOfLongestSubstring(String s) 
     {
         //Brute Force
-        int maxLen =0;
+        // int maxLen = 0;
+        // for(int i=0; i<s.length();i++)
+        // {
+        //     Set<Character> set = new HashSet<>();
 
-        for(int i=0; i<s.length(); i++)
-        {
-            Set<Character> set = new HashSet<>();
+        //     for(int j=i; j<s.length(); j++)
+        //     {
+        //         char ch = s.charAt(j);
 
-            for(int j=i; j<s.length(); j++)
-            {
-                char ch = s.charAt(j);
+        //         if(set.contains(ch))
+        //             break;
 
-                if(set.contains(ch))
-                    break;
-                
-                set.add(ch);
-                maxLen = Math.max(maxLen, j-i+1);
-            }
-        }
-        return maxLen;
-    }
-}
-Time complexity : O(n^2)
-Space complexity : O(n)
- */
+        //         set.add(ch);
+        //         maxLen = Math.max(maxLen, j-i+1);
+        //     }
+        // }
+        // return maxLen;
 
-class Solution 
-{
-    public int lengthOfLongestSubstring(String s)
-    {
-        //Optimal Solution 
+        //Optimal Solution
         HashSet<Character> set = new HashSet<>();
-        int l=0, result =0;
+        int l=0, res=0;
 
         for(int r=0; r<s.length(); r++)
         {
@@ -43,13 +32,12 @@ class Solution
                 l++;
             }
             set.add(s.charAt(r));
-            result = Math.max(result, r-l+1);
+            res = Math.max(res, r-l+1);
         }
-        return result;
+        return res;
     }
 }
-
 /**
-time complexity :O(n)
-space complexity : O(min(n, charset))
-*/
+time : O(n)
+space : O(min(n, charset))
+ */
